@@ -79,5 +79,53 @@ function checkDaysInMonth(month, leapyear = true) {
             break;
     }
 }
+// one equals rock
+// two equals paper 
+// three equals scissors 
+// rock beats scissors 
+// paper beats rock 
+// scissors beats paper 
+// NEED random number between 1-3 
+// NEED user input 
+// assign variables to each outcome
+// if user input beats the random number 
+//     return success  you beat computer with number 
+//     else return computer beat you with number 
 
-console.log(checkDaysInMonth("May"))
+
+
+function rockPaperScissors(input){
+    let computerVar = ''; 
+    let userInput = ''; 
+    const randomNo = Math.floor(Math.random() * 3) + 1;
+    if(input > 3){
+        throw new Error("You can't choose a number above 3!"); 
+    }
+    if ( randomNo === 1 ){
+        computerVar = 'rock';
+    }else if ( randomNo === 2 ){
+        computerVar = 'paper';
+    }else if ( randomNo === 3 ){
+        computerVar = 'scissors';
+    }
+    if ( input === 1 ){
+        userInput = 'rock';
+    } else if ( input === 2 ){
+        userInput = 'paper';
+    } else if ( input === 3 ){
+        userInput = 'scissors';
+    }
+    if( input === 2 && randomNo === 1 ){
+        return `Congrats! You beat the computer's ${computerVar} with ${userInput}`
+    }else if ( input === 1 && randomNo === 3){
+        return `Congrats! You beat the computer's ${computerVar} with ${userInput}`
+    }else if ( input === 3 && randomNo === 2){
+        return `Congrats! You beat the computer's ${computerVar} with ${userInput}`
+    }else if(input === randomNo){
+        return `Tie! You both picked ${userInput}.`
+    }
+    else{
+        return `Sorry! Computer beat your ${userInput} with ${computerVar}`
+    }
+} 
+console.log( rockPaperScissors(4)); 
